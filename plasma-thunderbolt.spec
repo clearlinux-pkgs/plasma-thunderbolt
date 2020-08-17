@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-thunderbolt
-Version  : 5.19.2
-Release  : 1
-URL      : https://download.kde.org/stable/plasma/5.19.2/plasma-thunderbolt-5.19.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.2/plasma-thunderbolt-5.19.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.2/plasma-thunderbolt-5.19.2.tar.xz.sig
+Version  : 5.19.4
+Release  : 2
+URL      : https://download.kde.org/stable/plasma/5.19.4/plasma-thunderbolt-5.19.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.4/plasma-thunderbolt-5.19.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.4/plasma-thunderbolt-5.19.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -84,15 +84,15 @@ locales components for the plasma-thunderbolt package.
 
 
 %prep
-%setup -q -n plasma-thunderbolt-5.19.2
-cd %{_builddir}/plasma-thunderbolt-5.19.2
+%setup -q -n plasma-thunderbolt-5.19.4
+cd %{_builddir}/plasma-thunderbolt-5.19.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592944443
+export SOURCE_DATE_EPOCH=1597644970
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -104,14 +104,14 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592944443
+export SOURCE_DATE_EPOCH=1597644970
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-thunderbolt
-cp %{_builddir}/plasma-thunderbolt-5.19.2/COPYING %{buildroot}/usr/share/package-licenses/plasma-thunderbolt/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/plasma-thunderbolt-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/plasma-thunderbolt/7c203dee3a03037da436df03c4b25b659c073976
 pushd clr-build
 %make_install
 popd
